@@ -54,7 +54,7 @@ class Vungle {
 
   /// Get version of Vungle native SDK
   static Future<String> getSDKVersion() async {
-    return _channel.invokeMethod('sdkVersion');
+    return await _channel.invokeMethod('sdkVersion');
   }
 
   /// Initialize the flutter plugin for Vungle SDK.
@@ -180,7 +180,7 @@ class Vungle {
   /// Get Consent Status
   static Future<UserConsentStatus?> getConsentStatus() async {
     final String status = await _channel.invokeMethod('getConsentStatus', null);
-    return _statusStringToUserConsentStatus![status];
+    return _statusStringToUserConsentStatus[status];
   }
 
   /// Get Consent Message version
